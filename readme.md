@@ -28,13 +28,13 @@ LLMs often mask hallucinations with verbose language (e.g., *"It is generally be
 * **Strategy:** We use specific Prompt Engineering to force a **Single-Token / Single-Word** output.
 * **Goal:** Remove linguistic noise. If the model is asked for a date, it must provide *only* the date. This makes verification binary and precise.
 
-### Step 2: Intrinsic Signal Detection (The "Gut Check")
+### Step 2: Intrinsic Signal Detection
 We analyze the model's internal confidence before it outputs text.
 * **Mechanism:** Accessing the raw **Logits** of the generated tokens.
 * **Metric:** **Average Token Confidence (0.0 - 1.0)**.
 * **Logic:** A low confidence score indicates the model is statistically "guessing" the next token, which is a strong proxy for hallucination type #1 (Uncertainty).
 
-### Step 3: Extrinsic Signal Detection (The "Cross-Examination")
+### Step 3: Extrinsic Signal Detection
 We test the robustness of the answer by trying to force the model to slip up.
 * **Mechanism:** **Self-Consistency Sampling**.
 * **Process:** We generate the answer $N$ times (e.g., 3-5 samples) with a high Temperature ($T=0.7$).
