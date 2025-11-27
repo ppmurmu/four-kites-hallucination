@@ -1,4 +1,9 @@
 # Factuality & Hallucination Detection Framework
+
+## Google Colab
+[link](https://colab.research.google.com/drive/1DVuLRsR1GVcbUBAcWE7ekZScZCwgyS8P?usp=sharing)
+
+
 ### Architectural Approach & Methodology
 
 ## 1. Problem Statement
